@@ -1,0 +1,53 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.at-work {
+  height: calc(100vh - 145px);
+}
+
+.completed {
+  height: calc(100vh - 67px);
+}
+
+.header {
+  color: #ffe996;
+}
+
+.task-name {
+  max-width: 30%;
+}
+
+.display {
+  height: 100%;
+}
+
+.add-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-btn {
+  min-height: 57px;
+  margin-left: 0.7px;
+  background-color: #4d6f9f;
+}
+
+.left-btn {
+  margin-right: 2px;
+  background-color: lightcoral;
+}
+
+.v-bottom-navigation__content {
+  justify-content: space-around;
+}
+
+.v-expansion-panel-text__wrapper {
+  font-size: 0.8rem;
+}
+
+.v-list-item-subtitle {
+  -webkit-line-clamp: unset !important;
+}
