@@ -4,6 +4,9 @@ body {
   margin: 0;
 }
 
+$gold: #ffe996;
+$asphalt: #7fa1cf;
+
 .at-work {
   height: calc(100vh - 145px);
 }
@@ -13,7 +16,7 @@ body {
 }
 
 .header {
-  color: #ffe996;
+  color: $gold;
 }
 
 .task-name {
@@ -32,12 +35,23 @@ body {
 .add-btn {
   min-height: 57px;
   margin-left: 0.7px;
-  background-color: #4d6f9f;
+  background-color: $asphalt;
+  color: $gold;
 }
 
 .left-btn {
   margin-right: 2px;
+  margin-left: 4px;
   background-color: lightcoral;
+}
+
+.edit-btn {
+  color: $gold;
+  background-color: $asphalt;
+}
+
+.nav-btn {
+  color: $asphalt;
 }
 
 .v-bottom-navigation__content {

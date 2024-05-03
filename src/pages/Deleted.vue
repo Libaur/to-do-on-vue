@@ -36,7 +36,7 @@ const headerProps = {
 const taskProps = {
   leftButtonText: "Удалить",
   rightButtonText: "В работу!",
-  leftButtonClickHandler: store.removeTask,
-  rightButtonClickHandler: store.addTask,
+  leftButtonHandler: store.removeTask,
+  rightButtonHandler: store.addTask,
 }
 </script>

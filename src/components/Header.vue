@@ -1,8 +1,10 @@
 <template>
     <v-toolbar :title="title">
-        <RouterLink :to="leftButton.route"><v-btn><v-icon>{{ leftButton.icon }}</v-icon><span>{{ leftButton.text
+        <RouterLink :to="leftButton.route"><v-btn class="nav-btn"><v-icon>{{ leftButton.icon }}</v-icon><span>{{
+            leftButton.text
                     }}</span></v-btn></RouterLink>
-        <RouterLink :to="rightButton.route"><v-btn><v-icon>{{ rightButton.icon }}</v-icon><span>{{ rightButton.text
+        <RouterLink :to="rightButton.route"><v-btn class="nav-btn"><v-icon>{{ rightButton.icon }}</v-icon><span>{{
+            rightButton.text
                     }}</span></v-btn></RouterLink>
     </v-toolbar>
 </template>

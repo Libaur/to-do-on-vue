@@ -13,7 +13,6 @@ import Header from '@/components/Header.vue';
 import Task from '@/components/Task.vue';
 import { useAppStore } from '@/stores/app';
 import { useStorage } from '@/utils';
-import { onMounted } from 'vue';
 
 const store = useAppStore();
 const storage = useStorage("done");
@@ -36,7 +35,7 @@ const headerProps = {
 const taskProps = {
   leftButtonText: "Удалить",
   rightButtonText: "В работу!",
-  leftButtonClickHandler: store.removeTask,
-  rightButtonClickHandler: store.addTask,
+  leftButtonHandler: store.removeTask,
+  rightButtonHandler: store.addTask,
 }
 </script>

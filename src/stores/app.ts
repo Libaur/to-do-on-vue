@@ -8,6 +8,7 @@ interface ITask {
   title: string;
   description: string;
   status: Status;
+  edit: boolean;
 }
 
 interface AppState {
@@ -37,6 +38,26 @@ const useAppStore = defineStore("app", {
         currentStatus ? this[currentStatus] : undefined,
         currentStatus ? currentStatus : undefined
       );
+    },
+    editTask(editedTaskId: string) {
+      const editedTaskIndex = this.unfulfilled.findIndex(
+        (task) => task.id === editedTaskId
+      );
+      if (editedTaskIndex !== -1) {
+        this.unfulfilled[editedTaskIndex].edit = true;
+      }
+    },
+    changeTask(changingTask: ITask) {
+      const changingTaskIndex = this.unfulfilled.findIndex(
+        (task) => task.id === changingTask.id
+      );
+      if (changingTaskIndex !== -1) {
+        this.unfulfilled[changingTaskIndex].title = changingTask.title;
+        this.unfulfilled[changingTaskIndex].description =
+          changingTask.description;
+          this.unfulfilled[changingTaskIndex].edit = false;
+      }
+      updateStorage(this.unfulfilled, "unfulfilled");
     },
     completeTask(completedTask: ITask) {
       const completedTaskIndex = this.unfulfilled.findIndex(
