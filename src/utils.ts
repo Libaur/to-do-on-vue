@@ -1,17 +1,30 @@
 import { ITask, Status } from "@/stores/app";
 
-export function updateStorage(
-  increased: ITask[],
-  increasedStatus: Status,
-  reduced?: ITask[],
-  reducedStatus?: Status
-) {
-  localStorage.setItem(increasedStatus, JSON.stringify(increased)); 
-  if (reduced && reducedStatus) {
-    localStorage.setItem(reducedStatus, JSON.stringify(reduced));
+function saveToStorage(key: string, data: ITask[]) {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (error) {
+    console.error(`Failed to save ${data} to local storage`);
   }
 }
 
-export const useStorage = (currentStatus: Status) =>
-  localStorage.getItem(currentStatus)?.length &&
-  JSON.parse(localStorage.getItem(currentStatus) as string);
+export function useStorage(key: string) {
+  try {
+    const item = localStorage.getItem(key);
+    if (item && item.length) return JSON.parse(item);
+  } catch (error) {
+    console.error(`No item found in local storage for ${key}`);
+  }
+}
+
+export function updateStorage(
+  increasedData: ITask[],
+  increasedStatus: Status,
+  reducedData?: ITask[],
+  reducedStatus?: Status
+) {
+  saveToStorage(increasedStatus, increasedData);
+  if (reducedData && reducedStatus) {
+    saveToStorage(reducedStatus, reducedData);
+  }
+}
